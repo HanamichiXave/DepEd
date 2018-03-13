@@ -26,16 +26,47 @@
 }
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #;
-}.dropdown-submenu {
-	 position: relative;
- }
-
-.dropdown-submenu .dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -1px;
 }
 
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	left: 100%;
+
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu>a:after {
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+	border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+	float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
+}
 </style>
 <body>
 	<!-- navigation bar  -->
@@ -145,8 +176,6 @@
 										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
 											<span class="caret"></span></button>
 										<ul class="dropdown-menu">
-											<li><a tabindex="-1" href="#">HTML</a></li>
-											<li><a tabindex="-1" href="#">CSS</a></li>
 											<li class="dropdown-submenu">
 												<a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
 												<ul class="dropdown-menu">
@@ -161,6 +190,35 @@
 													</li>
 												</ul>
 											</li>
+											<li class="dropdown-submenu">
+												<a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
+												<ul class="dropdown-menu">
+													<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+													<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+													<li class="dropdown-submenu">
+														<a class="test" href="#">Another dropdown <span class="caret"></span></a>
+														<ul class="dropdown-menu">
+															<li><a href="#">3rd level dropdown</a></li>
+															<li><a href="#">3rd level dropdown</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li class="dropdown-submenu">
+												<a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
+												<ul class="dropdown-menu">
+													<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+													<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+													<li class="dropdown-submenu">
+														<a class="test" href="#">Another dropdown <span class="caret"></span></a>
+														<ul class="dropdown-menu">
+															<li><a href="#">3rd level dropdown</a></li>
+															<li><a href="#">3rd level dropdown</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+
 										</ul>
 									</div>
 		                        </div>
