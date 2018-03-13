@@ -1,0 +1,54 @@
+table.table-actions-bar{
+    box-shadow: 10px 10px 5px #888888;
+    overflow: hidden;
+    height: 260px;
+}
+table.table-actions-bar > thead > tr {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+.table tr td:first-child,
+.table tr td:nth-child(7){
+    background-color: #eee;
+    color: #555;
+}
+.total{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.month{
+    box-shadow: 10px 10px 5px #888888;
+    margin: 0px;
+}
+.absent{
+    background-color: #d9534f;
+}
+.present{
+    background-color: #5cb85c;
+}
+.late{
+    background-color: #f0ad4e;
+}
+.excused{
+    background-color: #5bc0de;
+}
+.page-header {
+    padding-bottom: 0px!important;
+    margin: 20px 0 0px!important;
+    border-bottom: 0px solid #eee!important;
+}
+.breadcrumb {
+    padding: 5px 15px!important;
+    margin-bottom: 10px!important;
+    font-size: 15px!important
+}
+.month {
+    background-color: #85ADDE;
+    color: #FFFFFF;
+}
+th {
+    background-color: #CAFFF0;
+}
+td {
+    text-align: center!important;
+    border: 1px solid #fff;
+}

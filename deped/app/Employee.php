@@ -1,0 +1,104 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Employee extends Model
+{
+  protected $fillable = ['employee_no',
+  						'employee_img',
+  						'staffDepartment',
+  						'role',
+  						'license',
+  						'staffMajor',
+  						'date_hired',
+  						'empPayRate',
+  						'working_days',
+  						'empLastName',
+  						'empFirstName',
+  						'empMiddleName',
+  						'religion',
+  						'empNationality'
+			            ,'employeeBirthDay'
+			            ,'empHeight'
+			            ,'empWeight'            
+			            ,'bloodType'
+			            ,'empAllergies'
+			            ,'maritalStatus'
+			            ,'gender'
+			            ,'empMobile'
+			            ,'remarks'
+			            ,'tin'
+			            ,'sss'
+			            ,'pagibig'
+			            ,'philhealth'
+			            ,'empType'
+			            ,'vacLeave'
+			            ,'sickLeave'
+			            ,'maternalLeave'
+			          	,'employeeUnitNumber'
+			            ,'employeeHouseNumber'
+			            ,'employeeStreetName'
+			            ,'employeeBrgyName'
+			            ,'employeeCity'
+			            ,'employeePostalCode'
+			            ,'landLineNo'
+			            ,'employeeUnitNumber1'
+			            ,'employeeHouseNumber1'
+			            ,'employeeStreetName1'
+			            ,'employeeBrgyName1'
+			            ,'employeeCity1'
+			            ,'employeePostalCode1'
+			            ,'permanentLandLine'
+			            ,'fathersName'
+			            ,'fathersOccupation'
+			            ,'fathersHighEduc'
+			            ,'mothersName'
+			            ,'mothersOccupation'
+			            ,'mothersHighEduc'
+			            ,'spouseName'
+			            ,'spouseBirthday'
+			            ,'spouseOccupation'
+			            ,'dependentName'
+			            ,'dependentDOB','expNameOfCompany'
+			            ,'expYearStarted'
+			            ,'expYearEnded'
+			            ,'expOldSupervisor'
+			            ,'expAddress'
+			            ,'expReasonOfLeaving'
+			            ,'expSkills'
+						,'collegeNameOfSchool'
+			            ,'collegeYearStarted'
+			            ,'collegeYearEnded'
+			            ,'HighestEduc'
+			            ,'collegeAddress'
+			            ,'professionalNameOfSchool'
+			            ,'professionalYearStarted'
+			            ,'professionalYearEnded'
+			            ,'professionalEducAttainment'
+			            ,'professionalAddress'
+			            ,'topicName'
+			            ,'topicDateStarted'
+			            ,'topicDateEnded'
+			            ,'topicAddress'
+			            ,'uploadCert'
+			            ,'refOneName'
+			            ,'refYearAcquainted'
+			            ,'refContactNo'
+			            ,'refEmailAddress'
+			            ,'refOccupation'
+			            ,'refCompanyName'
+			            ,'refAddress'
+			         	,'tinNumber' 
+			            ,'sssNumber'
+			            ,'pagibigNumber'
+			            ,'philhealthNumber'
+			            ,'nbiClearance'
+			            ,'otherRecords'
+						,'user_name'
+			            ,'empEmail'
+			            ,'password'
+
+];
+}
