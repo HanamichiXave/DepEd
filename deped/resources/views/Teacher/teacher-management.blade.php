@@ -266,7 +266,9 @@
                     </div>
                 </div>
             </a>
+            <br><br>
         </div>
+
         <div id="chatWindow">
           <div class="windowSize">
             <div class="windowHeading">
