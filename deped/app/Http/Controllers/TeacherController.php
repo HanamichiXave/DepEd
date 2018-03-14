@@ -11,6 +11,7 @@ use App\Section;
 use App\Teacher;
 use App\User;
 use App\Lesson;
+use App\Leave;
 
 class TeacherController extends Controller
 {
@@ -68,7 +69,37 @@ class TeacherController extends Controller
             ->with('classes', $classes);
     }
     public function teacherleave(){
-    	return view('Teacher.teacher_leaveandvacation');
+        $leaves = Leave::all();
+
+    	return view('Teacher.teacher_leaveandvacation')->with('leaves', $leaves);
+    }
+    public function storeleave(Request $request){
+        $leave = new Leave;
+
+        $this->validate($request, [
+            'employeeName' => 'required',
+            'employeeId' => 'required',
+            'department' => 'required',
+            'departmentHead' => 'required',
+            'typeOfLeave' => 'required',
+            'dateOfLeaveStart' => 'required',
+            'dateOfLeaveEnd' => 'required',
+            'dateOfFile' => 'nullable',
+            'reasonOfLeave' => 'required',
+        ]);
+
+        $leave->employeeName = $request->input('employeeName');
+        $leave->employeeId = $request->input('employeeId');
+        $leave->department = $request->input('department');
+        $leave->departmentHead = $request->input('departmentHead');
+        $leave->typeOfLeave = $request->input('typeOfLeave');
+        $leave->dateOfLeaveStart = $request->input('dateOfLeaveStart');
+        $leave->dateOfLeaveEnd = $request->input('dateOfLeaveEnd');
+        $leave->dateOfFile = $request->input('dateOfFile');
+        $leave->reasonOfLeave = $request->input('reasonOfLeave');
+
+        $leave->save();
+        return redirect('/teacher/teacherleave')->with('success', 'Leave Submitted');
     }
     public function teacherlessonplan(Request $request){
         $lessons = Lesson::all();
@@ -170,5 +201,4 @@ class TeacherController extends Controller
     public function teacherstudprog(){
     	return view('Teacher.teacher_studprog');
     }
-
 }

@@ -208,21 +208,24 @@ Route::group(array('prefix'=>'teacher/'), function(){
 		Route::get('/teacherclassgradeschool', array('uses' =>'TeacherController@teacherclassgradeschool', 'as'=> 'teacherclassgradeschool'));
 		Route::get('/teacherclassgrade', array('uses' =>'TeacherController@teacherclassgrade', 'as'=> 'teacherclassgrade'));
 		Route::get('/teacherclassprog', array('uses' =>'TeacherController@teacherclassprog', 'as'=> 'teacherclassprog'));
+
 		Route::get('/teacherclassschedule', array('uses' =>'TeacherController@teacherclassschedule', 'as'=> 'teacherclassschedule'));
+        Route::get('/teacherclassschedule/{id}', 'TeacherController@teacherclassschedule');
+
 		Route::get('/teacherleave', array('uses' =>'TeacherController@teacherleave', 'as'=> 'teacherleave'));
+        Route::post('/storeleave', array('uses' =>'TeacherController@storeleave', 'as'=> 'storeleave'));
+
 		Route::get('/teacherlessonplan', array('uses' =>'TeacherController@teacherlessonplan', 'as'=> 'teacherlessonplan'));
+        Route::post('/storelessonplan', array('uses' =>'TeacherController@storelessonplan', 'as'=> 'storelessonplan'));
+        Route::post('/updatelessonplan/{id}', 'TeacherController@updatelessonplan');
+        Route::post('/deletelessonplan/{id}', 'TeacherController@deletelessonplan');
+
 		Route::get('/teacherpayslip', array('uses' =>'TeacherController@teacherpayslip', 'as'=> 'teacherpayslip'));
 		Route::get('/teacherprofile', array('uses' =>'TeacherController@teacherprofile', 'as'=> 'teacherprofile'));
 		Route::get('/teacherstudentgradedeped', array('uses' =>'TeacherController@teacherstudentgradedeped', 'as'=> 'teacherstudentgradedeped'));
 		Route::get('/teacherstudentgradeschool', array('uses' =>'TeacherController@teacherstudentgradeschool', 'as'=> 'teacherstudentgradeschool'));
 		Route::get('/teacherstudentgrades', array('uses' =>'TeacherController@teacherstudentgrades', 'as'=> 'teacherstudentgrades'));
 		Route::get('/teacherstudprog', array('uses' =>'TeacherController@teacherstudprog', 'as'=> 'teacherstudprog'));
-
-        Route::post('/teacherlessonplan', array('uses' =>'TeacherController@storelessonplan', 'as'=> 'storelessonplan'));
-        Route::post('/teacherlessonplan/{id}', 'TeacherController@updatelessonplan');
-        Route::post('/teacherlessonplan/{id}', 'TeacherController@deletelessonplan');
-
-        Route::get('/teacherclassschedule/{id}', 'TeacherController@teacherclassschedule');
 });
 
 //Principal Module

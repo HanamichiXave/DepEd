@@ -26,50 +26,52 @@
             <div class="col-lg-12">
                <div class="panel panel-custom">
                   <div class="panel-heading" style="font-size: 20px; font-weight: 350;"><i class="fa fa-pencil-square-o fa-lg"></i> Lesson Plan List</div>
-                     <div class="panel-body"> 
-                        <div class="row">
-                           <div class="col-sm-8">
-                              <div class="form-group contact-search m-b-30">
-                                 <input type="text" id="search" class="form-control" style="height: 40px; margin-top: 7px;" placeholder="Search...">
-                              </div>
-                           </div>
-                              <div class="col-sm-4">
+                     <div class="panel-body">
+                         <div class="row">
+                             <div class="col-sm-8">
+                                 <div class="form-group contact-search m-b-30">
+                                     <input type="text" id="search" class="form-control" style="height: 40px; margin-top: 7px;" placeholder="Search...">
+                                 </div>
+                             </div>
+                             <div class="col-sm-4">
                                  <button type="button" class="btn btn-info" style="height: 40px; margin-top: 7px;" data-toggle="modal" data-target="#addModal" >Add Lesson Plan</button>
-                           </div>
-                        </div>
-                        <form class="table-responsive">
-                           <table id="myTable" class="display nowrap table table-hover display" cellspacing="0" width="100%">
-                              <thead>
+                             </div>
+                         </div>
+                         <form class="table-responsive">
+                             <table id="myTable" class="display nowrap table table-hover display" cellspacing="0" width="100%">
+                                 <thead>
                                  <tr>
-                                    <th style="width: 5%; text-align: center;">Quarter</th>
-                                    <th  style="width: 10%; text-align: center;">Date</th>
-                                    <th  style="width: 10%; text-align: center;">Subject</th>
-                                    <th  style="width: 10%; text-align: center;">Grade Level</th>
-                                    <th  style="width: 20%; text-align: center;">Topic</th>
-                                    <th  style="width: 20%; text-align: center;">Title</th>
-                                    <th  style="width: 10%; text-align: center;">Lesson Duration</th>
-                                    <th  style="width: 30%;"></th>
+                                     <th style="width: 5%; text-align: center;"></th>
+                                     <th style="width: 5%; text-align: center;">Quarter</th>
+                                     <th  style="width: 10%; text-align: center;">Date</th>
+                                     <th  style="width: 10%; text-align: center;">Subject</th>
+                                     <th  style="width: 10%; text-align: center;">Grade Level</th>
+                                     <th  style="width: 20%; text-align: center;">Topic</th>
+                                     <th  style="width: 20%; text-align: center;">Title</th>
+                                     <th  style="width: 10%; text-align: center;">Lesson Duration</th>
+                                     <th  style="width: 30%;"></th>
                                  </tr>
-                              </thead>
-                              <tbody>
-                                @foreach($lessons as $lesson)
-                                 <tr>
-                                    <td>{{ $lesson->quarter }}</td>
-                                    <td>{{ date("m/d/Y", strtotime($lesson->dateoflesson)) }}</td>
-                                    <td>{{ $lesson->subject }}</td>
-                                    <td>{{ $lesson->gradelevel }}</td>
-                                    <td>{{ $lesson->topic }}</td>
-                                    <td>{{ $lesson->title }}</td>
-                                    <td>{{ $lesson->duration }}</td>
-                                    <td>
-                                       <button type="button" class="btn btn-info btn-xs center-block" data-toggle="modal" data-target="#editModal{{ $lesson->id }}" style="width: 60px;">Edit</button>
-                                       <button type="button" class="btn btn-danger btn-xs center-block" data-toggle="modal" data-target="#deleteModal{{ $lesson->id }}"  style="width: 60px;">Delete</button>
-                                    </td>
-                                 </tr>
-                                @endforeach
-                              </tbody>
-                           </table>
-                        </form>
+                                 </thead>
+                                 <tbody>
+                                 @foreach($lessons as $lesson)
+                                     <tr>
+                                         <td></td>
+                                         <td>{{ $lesson->quarter }}</td>
+                                         <td>{{ date("m/d/Y", strtotime($lesson->dateoflesson)) }}</td>
+                                         <td>{{ $lesson->subject }}</td>
+                                         <td>{{ $lesson->gradelevel }}</td>
+                                         <td>{{ $lesson->topic }}</td>
+                                         <td>{{ $lesson->title }}</td>
+                                         <td>{{ $lesson->duration }}</td>
+                                         <td>
+                                             <button type="button" class="btn btn-info btn-xs center-block" data-toggle="modal" data-target="#editModal{{ $lesson->id }}" style="width: 60px;">Edit</button>
+                                             <button type="button" class="btn btn-danger btn-xs center-block" data-toggle="modal" data-target="#deleteModal{{ $lesson->id }}"  style="width: 60px;">Delete</button>
+                                         </td>
+                                     </tr>
+                                 @endforeach
+                                 </tbody>
+                             </table>
+                         </form>
                      </div>
 
                   <!-- Modal Add -->
@@ -80,7 +82,7 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <h4 class="modal-title">Lesson Plan</h4>
                            </div>
-                           <form action = "{{ url('teacher/teacherlessonplan') }}" method = "POST">
+                           <form action = "{{ url('teacher/storelessonplan') }}" method = "POST">
                               {{ csrf_field() }}
                            <div class="modal-body">
                               <div class="card-box">
@@ -138,7 +140,7 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <h4 class="modal-title">Lesson Plan</h4>
                            </div>
-                            <form action = "{{ url('teacher/teacherlessonplan', $lesson->id) }}" method = "POST">
+                            <form action = "{{ url('teacher/updatelessonplan', $lesson->id) }}" method = "POST">
                                 {{ csrf_field() }}
                                <div class="modal-body">
                                   <div class="card-box">
@@ -199,7 +201,7 @@
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <h4 class="modal-title">Delete Lesson</h4>
                            </div>
-                            <form action = "{{ url('teacher/teacherlessonplan', $lesson->id) }}" method = "POST">
+                            <form action = "{{ url('teacher/deletelessonplan', $lesson->id) }}" method = "POST">
                                 {{ csrf_field() }}
                                <div class="modal-body">
                                   <div class="card-box">

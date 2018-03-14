@@ -302,21 +302,3 @@
                } );
            }).draw();
          });
-
-         $(document).on('click', '.view-class', function(){
-             var id = $(this).attr("id");
-             $('#form_output').html('');
-             $.ajax({
-                 url:"{{route('teacherclassattendance')}}",
-                 method:'get',
-                 data:{id:id},
-                 dataType:'json',
-                 success:function(data)
-                 {
-                     $('#class-grade').val(data.grade);
-                     $('#class-section').val(data.section);
-                     $('#classId').val(id);
-                     $('#studentModal').modal('show');
-                 }
-             })
-         });
