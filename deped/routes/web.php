@@ -182,19 +182,19 @@ Route::group(array('prefix'=>'library/'), function(){
 
 //Parent Module
 Route::group(array('prefix'=>'parent/'), function(){
-        Route::get('/childlist', array('uses' =>'ParentController@childlist', 'as'=> 'childlist'));
-        Route::get('/parentdashboard', array('uses' =>'ParentController@parentdashboard', 'as'=> 'parentdashboard'));
-        Route::get('/parentgrades', array('uses' =>'ParentController@parentgrades', 'as'=> 'parentgrades'));
-        Route::get('/libraryportal', array('uses' =>'ParentController@libraryportal', 'as'=> 'libraryportal'));
-        Route::get('/messagecalendar', array('uses' =>'ParentController@messagecalendar', 'as'=> 'messagecalendar'));
-        Route::get('/schoolactivities', array('uses' =>'ParentController@schoolactivities', 'as'=> 'schoolactivities'));
-        Route::get('/schoolannouncement', array('uses' =>'ParentController@schoolannouncement', 'as'=> 'schoolannouncement'));
-        Route::get('/schoolhandbook', array('uses' =>'ParentController@schoolhandbook', 'as'=> 'schoolhandbook'));
-        Route::get('/statementofaccount', array('uses' =>'ParentController@statementofaccount', 'as'=> 'statementofaccount'));
-        Route::get('/parentsubjectlist', array('uses' =>'ParentController@parentsubjectlist', 'as'=> 'parentsubjectlist'));
-        Route::get('/parentsubjectschedule/{id}', array('uses' =>'ParentController@parentsubjectschedule', 'as'=> 'parentsubjectschedule'));
-        Route::get('/parentviewattendance/{id}','ParentController@parentviewattendance')->name('parentviewattendance');
-        Route::get('/parentviewgrade', array('uses' =>'ParentController@parentviewgrade', 'as'=> 'parentviewgrade'));
+    Route::get('/childlist', 'ParentController@childlist')                                          ->name('childlist');
+    Route::get('/parentdashboard','ParentController@parentdashboard')                               ->name('parentdashboard');
+    Route::get('/parentgrades/{id}','ParentController@parentgrades')                                     ->name('parentgrades');
+    Route::get('/libraryportal','ParentController@libraryportal')                                   ->name('libraryportal');
+    Route::get('/messagecalendar','ParentController@messagecalendar')                               ->name('messagecalendar');
+    Route::get('/schoolactivities','ParentController@schoolactivities')                             ->name('schoolactivities');
+    Route::get('/schoolannouncement','ParentController@schoolannouncement')                         ->name('schoolannouncement');
+    Route::get('/schoolhandbook','ParentController@schoolhandbook')                                 ->name('schoolhandbook');
+    Route::get('/statementofaccount','ParentController@statementofaccount')                         ->name('statementofaccount');
+    Route::get('/parentsubjectlist','ParentController@parentsubjectlist')                           ->name('parentsubjectlist');
+    Route::get('/parentsubjectschedule/{id}','ParentController@parentsubjectschedule')              ->name('parentsubjectschedule');
+    Route::get('/parentviewattendance/{id}','ParentController@parentviewattendance')                ->name('parentviewattendance');
+    Route::get('/parentviewgrade','ParentController@parentviewgrade')                               ->name('parentviewgrade');
 
 });
 

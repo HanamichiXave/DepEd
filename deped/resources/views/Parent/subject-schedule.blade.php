@@ -85,7 +85,7 @@
            </tr>
            <tr>
               <td class="notop tdwidth"><strong>Class Adviser:</strong></th>
-              <td class="notop tdwidth1"><label class="control-label">Mr. Mayson Labuntog</label></td>
+              <td class="notop tdwidth1"><label class="control-label">{{ $adviser[0]->lastName }}, {{ $adviser[0]->firstName }} {{ $adviser[0]->middleName }}</label></td>
            </tr>
          </tbody>
         </table>
