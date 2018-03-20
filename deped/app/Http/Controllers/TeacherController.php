@@ -59,11 +59,12 @@ class TeacherController extends Controller
     public function teacherclassprog(){
     	return view('Teacher.teacher_classprog');
     }
-    public function teacherclassschedule(){
+    public function teacherclassschedule($id){
         $classes = StudClass::select('stud_classes.*', 'sections.*', 'grades.*', 'rooms.*')
             ->join('sections', 'sections.sectionId', '=', 'stud_classes.sectionId')
             ->join('grades', 'grades.gradeId', '=', 'sections.gradeId')
             ->join('rooms', 'rooms.roomId', '=', 'stud_classes.roomId')
+            ->where('stud_classes.teacherId', $id)
             ->get();
     	return view('Teacher.teacher_classschedule')
             ->with('classes', $classes);

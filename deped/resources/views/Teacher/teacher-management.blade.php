@@ -125,7 +125,8 @@
             </a>
           </div>  
           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a href="{{URL::Route('teacherclassschedule')}}" >
+            {{--<a href="{{URL::Route('teacherclassschedule')}}" >--}}
+            <a href="{{ url('teacher/teacherclassschedule/1') }}" >
               <div class="hovereffect">
                   <img class="img-responsive" src="{!! asset('assets/images/classlogo.png') !!}" height="100" width="100" alt="">
                   <div class="overlay">

@@ -59,8 +59,7 @@
                                  <th class="sorting_asc " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label=": activate to sort column descending" aria-sort="ascending" style="width: 5px;"></th>
                                  <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Student ID: activate to sort column ascending" style="width: 92px;">Date of File</th>
                                  <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Student Name: activate to sort column ascending" style="width: 123px;">Type of Leave</th>
-                                 <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Contact: activate to sort column ascending" style="width: 69px;">Start of Leave</th>
-                                 <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Contact: activate to sort column ascending" style="width: 69px;">End of Leave</th>
+                                 <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Contact: activate to sort column ascending" style="width: 69px;">Days of Leave</th>
                                  <th class="sorting " tabindex="0" aria-controls="searchList" rowspan="1" colspan="1" aria-label="Nature of Accident: activate to sort column ascending" style="width: 156px;">Reason of Leave & Vacation</th>
                               </tr>
                            </thead>
@@ -70,8 +69,14 @@
                                     <td></td>
                                     <td>{{ $leave->dateOfFile }}</td>
                                     <td>{{ $leave->typeOfLeave }}</td>
-                                    <td>{{ date('F d, Y', strtotime($leave->dateOfLeaveStart)) }}</td>
-                                    <td>{{ date('F d, Y', strtotime($leave->dateOfLeaveEnd)) }}</td>
+                                    <td>
+                                       @php
+                                          $start_date = new DateTime($leave->dateOfLeaveStart);
+                                          $end_date = new DateTime($leave->dateOfLeaveEnd);
+                                          $daysOfLeave = $end_date->diff($start_date)->format("%a");
+                                          echo $daysOfLeave + 1;
+                                       @endphp
+                                    </td>
                                     <td>{{ $leave->reasonOfLeave }}</td>
                                  </tr>
                               @endforeach
